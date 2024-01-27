@@ -48,7 +48,7 @@
 								<th scope="col">Event Address</th>
 								<th scope="col">Latitude</th>
 								<th scope="col">Lognitude</th>
-								{{-- <th scope="col">Company Name</th> --}}
+								<th scope="col">Company Name</th>
 								<th scope="col">Description</th>
 								<th scope="col">Action</th>
 							</tr>
@@ -64,7 +64,7 @@
 								<td>{{$venu->event_address}}</td>
 								<td>{{$venu->latitude}}</td>
 							    <td>{{$venu->longitude}}</td>
-							    {{-- <td>{{$venu->sponsers->company_name}}</td> --}}
+							    <td>{{$venu->sponsor->company_name}}</td>
 							    <td>{{$venu->description}}</td>
                                
 								

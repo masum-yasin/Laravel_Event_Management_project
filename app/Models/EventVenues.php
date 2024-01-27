@@ -21,7 +21,6 @@ class EventVenues extends Model
     }
     public function sponsor(): BelongsTo
     {
-        return $this->belongsTo(Sponsor::class);
-   
-}
+        return $this->belongsTo(Sponsor::class, 'sponsors_id');
+    }
 }
