@@ -6,6 +6,7 @@
 			<div class="min-height-200px">
 				<div class="page-header">
 					<div class="row">
+						
 						<div class="col-md-6 col-sm-12">
                             <a href="{{route('eventvenues.create')}}" class="btn btn-sm btn-success mb-3" style="float: right">Add Event Venu</a>
 							<div class="title">
@@ -26,7 +27,18 @@
 							</div>
 						</div>
 					</div>
+					<form action="" method="get">
+						<input type="text" name="search" placeholder="">
+						{{-- <select name="category" id="">
+						  <option value="">Select one</option>
+						  <option value="1">Birthday</option>
+						  <option value="2">sports</option>
+						  <option value="3">marriage ceremony</option>
+						</select> --}}
+						<input type="submit" name="submit" value="SEARCH">
+						</form>
 				</div>
+
 			
 		<!-- Striped table start -->
                 @if (session('msg'))
@@ -39,6 +51,7 @@
 						
 						
 					</div>
+					@if(count($eventvenus)>0)
 					<table class="table table-striped">
 						<thead>
 							<tr>
@@ -81,6 +94,10 @@
 							
 						</tbody>
 					</table>
+					@else
+					<h1>No Data Found</h1>
+		
+					@endif
 					
 				</div>
 			</div>

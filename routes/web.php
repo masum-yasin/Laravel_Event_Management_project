@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\VenueController;
 use App\Http\Controllers\EditorController;
 use App\Http\Controllers\frontend\DetailsController;
 use App\Http\Controllers\frontend\FrontendHomeController;
@@ -76,5 +77,7 @@ Route::get('admin/login',[AdminController::class,'login']);
 Route::post('admin/store',[AdminController::class,'store'])->name('AdminLogin');
 Route::get('admin/dashboard',[AdminController::class,'adashboard'])->name('admin.dashboard');
 
+// search route//
+Route::get('findvenu',[VenueController::class,'Search']);
 
 require __DIR__.'/auth.php';

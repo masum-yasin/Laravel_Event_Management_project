@@ -23,4 +23,11 @@ class EventVenues extends Model
     {
         return $this->belongsTo(Sponsor::class, 'sponsors_id');
     }
+    public function toSearchableArray()
+    {
+        return [
+            'name' =>$this->name,
+            'description' =>$this->description,
+        ];
+    }
 }

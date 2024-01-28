@@ -127,4 +127,16 @@ class VenueController extends Controller
         if($sponsor->delete());
         return redirect()->route('eventvenues.index')->with('msg','Delete Successfully');
     }
+    public function Search(Request $request) {
+        $sponsers =Sponsor::get();
+        $categories =Category::get();
+        if($request->filled('search')){
+            $eventvenus =EventVenues::search($request->search)->get();
+        } else {
+            $eventvenus =EventVenues::all();
+        }
+
+        return view('backend.eventvenu.index',compact('eventvenus','categories','sponsers'));
+
+    }
 }

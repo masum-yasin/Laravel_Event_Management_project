@@ -3,7 +3,7 @@
         <div class="menu-icon dw dw-menu"></div>
         <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div>
         <div class="header-search">
-            <form>
+            {{-- <form>
                 <div class="form-group mb-0">
                     <i class="dw dw-search2 search-icon"></i>
                     <input type="text" class="form-control search-input" placeholder="Search Here">
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> --}}
         </div>
     </div>
     <div class="header-right">
@@ -109,7 +109,7 @@
                     <span class="user-icon">
                         <img src="{{asset('assets/vendors/images/photo1.jpg')}}" alt="">
                     </span>
-                    <span class="user-name">Ross C. Lopez</span>
+                    <span class="user-name">{{Auth::user()->name}}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                     <a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Profile</a>
