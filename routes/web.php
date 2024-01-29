@@ -86,11 +86,11 @@ Route::middleware(['auth','role:admin'])->group(function(){
 });
 Route::middleware(['auth','role:editor'])->group(function()
 {
-    Route::get('editor/dashboard',[EditorController::class,'EditorDashboard'])->name('edut.dashboard');
+    Route::get('editor/dashboard',[EditorController::class,'EditorDashboard'])->name('editor.dashboard');
 });
-// Route::middleware(['auth','role:user'])->group(function(){
-//     Route::get('user/dashboard',[UserController::class,'UserDashboard'])->name('user.dashboard');
-// });
+Route::middleware(['auth','role:user'])->group(function(){
+    Route::get('user/dashboard',[UserController::class,'UserDashboard'])->name('user.dashboard');
+});
 
 
 
