@@ -6,7 +6,11 @@ use App\Http\Controllers\EditorController;
 use App\Http\Controllers\frontend\DetailsController;
 use App\Http\Controllers\frontend\FrontendHomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 
 /*
@@ -68,16 +72,27 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
      
 });
-// middleware editor dashboard//
-Route::get('editor/login',[EditorController::class,'login']);
-Route::post('editor/login',[EditorController::class,'store'])->name('EditorLogin');
-Route::get('editor/edashobard',[EditorController::class,'edashboard'])->name('editor.edashboard');
-//Admin MiddleWare//
-Route::get('admin/login',[AdminController::class,'login']);
-Route::post('admin/store',[AdminController::class,'store'])->name('AdminLogin');
-Route::get('admin/dashboard',[AdminController::class,'adashboard'])->name('admin.dashboard');
+
+
 
 // search route//
 Route::get('findvenu',[VenueController::class,'Search']);
 
 require __DIR__.'/auth.php';
+// Multiple auth by brazze
+
+Route::middleware(['auth','role:admin'])->group(function(){
+    Route::get('admin/dashboard',[AdminController::class,'AdminDashboard'])->name('admin.dashboard'); 
+});
+Route::middleware(['auth','role:editor'])->group(function()
+{
+    Route::get('editor/dashboard',[EditorController::class,'EditorDashboard'])->name('edut.dashboard');
+});
+// Route::middleware(['auth','role:user'])->group(function(){
+//     Route::get('user/dashboard',[UserController::class,'UserDashboard'])->name('user.dashboard');
+// });
+
+
+
+
+

@@ -3,24 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class EditorController extends Controller
 {
-   public function login(){
- return view('editor.login');
-   }
-   public function store(Request $request){
-    $euser = $request->all();
-    if(Auth::guard('editor')->attempt(['email'=>$euser['email'],'password'=>$euser['password']])){
-        return redirect()->route('editor.edashboard');
+    public function EditorDashboard(){
+        return view('backend.editor.editor_dashboard');
     }
-    else{
-        return view('editor.login');
-    }
-}
-   
-   public function edashboard(){
-    return view('editor.edashboard');
-   }
 }
